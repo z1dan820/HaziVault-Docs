@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaziVault Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00d285',
+                        'primary-dark': '#00b06f',
+                        bg: '#0a0c10',
+                        surface: '#161b22',
+                        border: '#30363d',
+                        text: '#f0f6fc',
+                        muted: '#8b949e'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0a0c10; color: #f0f6fc; }
+        .glass {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(48, 54, 61, 0.5);
+        }
+        .code-block {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            position: relative;
+        }
+        .glow-bg {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 210, 133, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0c10; }
+        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00d285; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-black">
+
+    <div class="glow-bg animate-pulse-slow"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-server text-primary text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight">Hazi<span class="text-primary">Vault</span> Docs</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#features" class="text-muted hover:text-primary transition">Features</a>
+                    <a href="#auto-install" class="text-muted hover:text-primary transition">Auto Install</a>
+                    <a href="#docker" class="text-muted hover:text-primary transition">Docker</a>
+                    <a href="#casaos" class="text-muted hover:text-primary transition">CasaOS</a>
+                    <a href="https://github.com/z1dan820/hazivault" target="_blank" class="text-white bg-primary/20 px-4 py-2 rounded-full border border-primary hover:bg-primary hover:text-black transition">
+                        <i class="fa-brands fa-github mr-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 px-4 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold mb-6 animate-float">
+                v3.0 EMERALD RELEASE 🚀
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white pb-2">
+                Simpan Data Anda.<br>Tanpa Batas.
+            </h1>
+            <p class="text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+                Network Attached Storage (NAS) DIY berbasis Node.js yang ringan, estetik, dan aman. Didesain untuk STB, Armbian, Termux, dan Server Modern.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-10 opacity-80">
+                <img src="https://img.shields.io/badge/MADE%20WITH-NODE.JS-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="NodeJS">
+                <img src="https://img.shields.io/badge/DOCKER-READY-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+                <img src="https://img.shields.io/badge/LICENSE-MIT-green?style=for-the-badge" alt="License">
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#auto-install" class="bg-primary text-black font-bold py-4 px-8 rounded-xl hover:shadow-[0_0_20px_rgba(0,210,133,0.4)] transition transform hover:-translate-y-1">
+                    <i class="fa-solid fa-bolt mr-2"></i> Install Sekarang
+                </a>
+                <a href="#features" class="glass text-white font-bold py-4 px-8 rounded-xl hover:bg-white/5 transition border border-white/10">
+                    <i class="fa-solid fa-star mr-2"></i> Lihat Fitur
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 bg-surface/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center"><span class="text-primary">Fitur</span> Unggulan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-2xl hover:border-primary/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition text-primary">
+                        <i class="fa-solid fa-layer-group text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multi-Select & Bulk</h3>
+                    <p class="text-muted text-sm leading-relaxed">Upload banyak file sekaligus atau hapus massal dengan mudah. Tekan tahan (HP) atau klik kanan (PC) untuk seleksi.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl hover:border-primary/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition text-primary">
+                        <i class="fa-solid fa-image text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Thumbnails</h3>
+                    <p class="text-muted text-sm leading-relaxed">Preview otomatis untuk gambar dan frame video. Ikon berwarna khusus untuk PDF, Word, Excel, dan Zip.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl hover:border-primary/50 transition duration-300 group">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition text-primary">
+                        <i class="fa-solid fa-hard-drive text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Storage Manager</h3>
+                    <p class="text-muted text-sm leading-relaxed">Deteksi otomatis hardisk/flashdisk eksternal dan ganti lokasi penyimpanan langsung dari dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center">Metode Instalasi</h2>
+
+        <div id="auto-install" class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-black font-bold">1</div>
+                <h3 class="text-2xl font-bold">Auto Installer (Recommended)</h3>
+            </div>
+            <p class="text-muted mb-4 ml-14">
+                Cocok untuk <strong>STB Armbian, Linux Server,</strong> dan <strong>Termux</strong>. Script ini otomatis menginstall Node.js, Git, PM2, dan mengatur <em>Auto-Start</em> saat reboot.
+            </p>
+            
+            <div class="ml-14 code-block rounded-xl overflow-hidden shadow-2xl">
+                <div class="flex justify-between items-center px-4 py-2 bg-white/5 border-b border-white/10">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span class="text-xs text-muted font-mono">Terminal (Bash)</span>
+                    <button onclick="copyCode('cmd1')" class="text-xs hover:text-white text-muted transition"><i class="fa-regular fa-copy"></i> Copy</button>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <code id="cmd1" class="font-mono text-sm text-primary">curl -sL https://raw.githubusercontent.com/z1dan820/hazivault/main/install.sh | sudo bash</code>
+                </div>
+            </div>
+            <div class="mt-4 ml-14 flex items-center gap-2 text-xs text-yellow-500 bg-yellow-500/10 p-3 rounded-lg border border-yellow-500/20 max-w-max">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Untuk Termux: Hapus kata "sudo" pada perintah di atas.</span>
+            </div>
+        </div>
+
+        <div id="docker" class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">2</div>
+                <h3 class="text-2xl font-bold">Docker Container</h3>
+            </div>
+            <p class="text-muted mb-4 ml-14">
+                Metode paling bersih dan terisolasi. Tidak perlu install dependency manual. Cukup jalankan container.
+            </p>
+            
+            <div class="ml-14 code-block rounded-xl overflow-hidden shadow-2xl">
+                <div class="flex justify-between items-center px-4 py-2 bg-white/5 border-b border-white/10">
+                    <span class="text-xs text-muted font-mono">Docker CLI</span>
+                    <button onclick="copyCode('cmd2')" class="text-xs hover:text-white text-muted transition"><i class="fa-regular fa-copy"></i> Copy</button>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <code id="cmd2" class="font-mono text-sm text-blue-400 block whitespace-pre">docker run -d \
+  --name hazivault \
+  --restart unless-stopped \
+  -p 3000:3000 \
+  -v $(pwd)/data:/app/data \
+  ghcr.io/z1dan820/hazivault:latest</code>
+                </div>
+            </div>
+        </div>
+
+        <div id="casaos" class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold">3</div>
+                <h3 class="text-2xl font-bold">CasaOS Custom Install</h3>
+            </div>
+            <p class="text-muted mb-4 ml-14">
+                Instalasi visual melalui dashboard CasaOS. Pilih <strong>"Install a Custom App"</strong> dan isi data berikut:
+            </p>
+            
+            <div class="ml-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass p-4 rounded-lg border border-white/10">
+                    <div class="text-xs text-muted uppercase mb-1">Docker Image</div>
+                    <div class="font-mono text-primary text-sm break-all">ghcr.io/z1dan820/hazivault:latest</div>
+                </div>
+                <div class="glass p-4 rounded-lg border border-white/10">
+                    <div class="text-xs text-muted uppercase mb-1">Port Map (Container)</div>
+                    <div class="font-mono text-white text-sm">3000</div>
+                </div>
+                <div class="glass p-4 rounded-lg border border-white/10 col-span-full">
+                    <div class="text-xs text-muted uppercase mb-1">Volume Map (Container)</div>
+                    <div class="font-mono text-white text-sm">/app/data</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="border-t border-white/10 bg-surface/30 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center gap-2 mb-6 text-2xl font-bold text-white">
+                <i class="fa-solid fa-server text-primary"></i> HaziVault
+            </div>
+            <p class="text-muted mb-8 text-sm">
+                Project Open Source NAS DIY terbaik untuk pemula dan profesional.<br>
+                Dibuat dengan ❤️ dan Kopi ☕ oleh Fahrul Hamzidan Pulungan.
+            </p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://github.com/z1dan820" class="text-muted hover:text-white text-2xl"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-muted hover:text-blue-400 text-2xl"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.instagram.com/fhamzidanpulungan_?igsh=MXAxajY0NzlncTN1Mg==" class="text-muted hover:text-pink-500 text-2xl"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="text-xs text-muted">
+                &copy; 2025 HaziVault Project. Licensed under MIT.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(elementId) {
+            const code = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector(`button[onclick="copyCode('${elementId}')"]`);
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check text-primary"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
